@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obojima Potion Almanac</title>
+    <link rel="stylesheet" href="https://use.typekit.net/rke0sfx.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Obojima Potion Almanac</h1>
+            <h2>Select Three or More Ingredients to Reveal Potion Recipes</h2>
+        </header>
+
+        <!-- Button group at the top -->
+        <div class="button-group">
+            <button type="button" onclick="findRecipes()">Find Recipes</button>
+            <button type="button" onclick="clearSelection()">Clear Selection</button>
+        </div>
+
+        <!-- Ingredient selection form -->
+        <form id="ingredientForm" class="form-section">
+            <div class="ingredient-columns">
+                <!-- Common Ingredients Column -->
+                <div class="column">
+                    <h3>Common Ingredients</h3>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Amber" data-rarity="common">
+                            Amber [9-5-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Apper Carrot" data-rarity="common">
+                            Apper Carrot [0-3-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bamboo" data-rarity="common">
+                            Bamboo [3-3-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bashu Powder" data-rarity="common">
+                            Bashu Powder [2-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Blue Back Salmon" data-rarity="common">
+                            Blue Back Salmon [3-4-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Boom Beri" data-rarity="common">
+                            Boom Beri [7-6-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bora Bug" data-rarity="common">
+                            Bora Bug [4-8-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Brush Reed" data-rarity="common">
+                            Brush Reed [1-10-6]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bundle of Driko Twigs" data-rarity="common">
+                            Bundle of Driko Twigs [1-1-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Camp Mite" data-rarity="common">
+                            Camp Mite [6-4-8]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Chicken Egg" data-rarity="common">
+                            Chicken Egg [1-1-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Chisuay&#39;s Heavenly Tea" data-rarity="common">
+                            Chisuay&#39;s Heavenly Tea [2-7-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Clay Snake Tail" data-rarity="common">
+                            Clay Snake Tail [8-6-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Cloud Horn" data-rarity="common">
+                            Cloud Horn [1-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Creeping Bolete" data-rarity="common">
+                            Creeping Bolete [3-10-6]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Dorrin Plate" data-rarity="common">
+                            Dorrin Plate [7-8-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Dried Fruit" data-rarity="common">
+                            Dried Fruit [2-1-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Earwax" data-rarity="common">
+                            Earwax [0-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Fish Folk Tooth" data-rarity="common">
+                            Fish Folk Tooth [9-4-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Fish Head" data-rarity="common">
+                            Fish Head [4-5-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Flash Paper" data-rarity="common">
+                            Flash Paper [6-9-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Green Slime" data-rarity="common">
+                            Green Slime [8-6-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Gohaku Rice" data-rarity="common">
+                            Gohaku Rice [3-2-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Hakuma Sapwood" data-rarity="common">
+                            Hakuma Sapwood [5-1-9]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Hill Dragon Egg" data-rarity="common">
+                            Hill Dragon Egg [9-3-8]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Howler Fur" data-rarity="common">
+                            Howler Fur [10-5-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Itchi Beri" data-rarity="common">
+                            Itchi Beri [0-1-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Jack-o-Lantern Bits" data-rarity="common">
+                            Jack-o-Lantern Bits [2-1-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Jumping Bonfire" data-rarity="common">
+                            Jumping Bonfire [6-4-10]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Kloth Leech" data-rarity="common">
+                            Kloth Leech [1-1-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Knobble Leaf Seaweed" data-rarity="common">
+                            Knobble Leaf Seaweed [1-1-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Kojo Root" data-rarity="common">
+                            Kojo Root [6-3-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Lovers Vine" data-rarity="common">
+                            Lovers Vine [0-0-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mandrake Root" data-rarity="common">
+                            Mandrake Root [8-5-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mellowort" data-rarity="common">
+                            Mellowort [4-8-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Monkey&#39;s Coil" data-rarity="common">
+                            Monkey&#39;s Coil [2-0-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mountain Ox Dung" data-rarity="common">
+                            Mountain Ox Dung [10-3-8]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mouse Tree Nut" data-rarity="common">
+                            Mouse Tree Nut [4-6-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Narutomaki" data-rarity="common">
+                            Narutomaki [0-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Nobblewort" data-rarity="common">
+                            Nobblewort [3-1-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Oporion Glass" data-rarity="common">
+                            Oporion Glass [1-10-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Origami Crane" data-rarity="common">
+                            Origami Crane [6-0-10]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Pink Candle Wax" data-rarity="common">
+                            Pink Candle Wax [2-2-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Peeping Willow" data-rarity="common">
+                            Peeping Willow [0-0-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Poison" data-rarity="common">
+                            Poison [9-8-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Pungent Sea Foam" data-rarity="common">
+                            Pungent Sea Foam [5-7-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Pyramid Melon" data-rarity="common">
+                            Pyramid Melon [2-2-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Queen&#39;s Dilemma" data-rarity="common">
+                            Queen&#39;s Dilemma [7-5-3]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Rake Paste" data-rarity="common">
+                            Rake Paste [4-10-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Rattle Shoot" data-rarity="common">
+                            Rattle Shoot [10-8-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Ribbon Rot" data-rarity="common">
+                            Ribbon Rot [5-3-9]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Rust Crab" data-rarity="common">
+                            Rust Crab [8-4-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Scalefruit Rind" data-rarity="common">
+                            Scalefruit Rind [4-2-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Seashell" data-rarity="common">
+                            Seashell [0-0-1]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Seawater" data-rarity="common">
+                            Seawater [1-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Sheep Dragon Wool" data-rarity="common">
+                            Sheep Dragon Wool [10-8-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Snap Vine Sap" data-rarity="common">
+                            Snap Vine Sap [0-2-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Spindle Leg Spider Webs" data-rarity="common">
+                            Spindle Leg Spider Webs [5-9-6]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Spirit Root" data-rarity="common">
+                            Spirit Root [6-0-9]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Squid Ink" data-rarity="common">
+                            Squid Ink [4-9-7]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Tangle Weed" data-rarity="common">
+                            Tangle Weed [8-8-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Ube" data-rarity="common">
+                            Ube [2-6-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Varrow" data-rarity="common">
+                            Varrow [0-1-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Venus Fly Rat" data-rarity="common">
+                            Venus Fly Rat [9-2-8]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Windbloom" data-rarity="common">
+                            Windbloom [6-7-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Witch&#39;s Broom" data-rarity="common">
+                            Witch&#39;s Broom [3-0-5]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Witch&#39;s Eye Coral" data-rarity="common">
+                            Witch&#39;s Eye Coral [1-0-10]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Yugi Sap" data-rarity="common">
+                            Yugi Sap [0-4-2]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Yuma Shrub" data-rarity="common">
+                            Yuma Shrub [5-8-4]
+                        </button><br><br>
+                    
+                </div>
+
+                <!-- Uncommon Ingredients Column -->
+                <div class="column">
+                    <h3>Uncommon Ingredients</h3>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Black Pearl" data-rarity="uncommon">
+                            Black Pearl [13-14-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Black Cinnamon" data-rarity="uncommon">
+                            Black Cinnamon [16-12-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bottle Cap (Supa-Fizz!)" data-rarity="uncommon">
+                            Bottle Cap (Supa-Fizz!) [11-13-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Corrupted Seawater" data-rarity="uncommon">
+                            Corrupted Seawater [17-11-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Corrupted Slime" data-rarity="uncommon">
+                            Corrupted Slime [16-14-13]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Cracking Jasper" data-rarity="uncommon">
+                            Cracking Jasper [17-15-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Dawn Petal" data-rarity="uncommon">
+                            Dawn Petal [11-13-17]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Dragon Root" data-rarity="uncommon">
+                            Dragon Root [14-15-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Essence of Ill Omen" data-rarity="uncommon">
+                            Essence of Ill Omen [16-12-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Essence of Glumbug" data-rarity="uncommon">
+                            Essence of Glumbug [11-11-17]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Feather Rock" data-rarity="uncommon">
+                            Feather Rock [13-17-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Fizzing Green" data-rarity="uncommon">
+                            Fizzing Green [12-14-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Forge Slag" data-rarity="uncommon">
+                            Forge Slag [15-14-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Gargoyle Powder" data-rarity="uncommon">
+                            Gargoyle Powder [15-16-13]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Glow Worms of the Vale" data-rarity="uncommon">
+                            Glow Worms of the Vale [12-15-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Hakumon&#39;s Ramen Broth" data-rarity="uncommon">
+                            Hakumon&#39;s Ramen Broth [12-14-17]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Happy Joy Cake" data-rarity="uncommon">
+                            Happy Joy Cake [12-13-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Kojobi Fruit" data-rarity="uncommon">
+                            Kojobi Fruit [14-14-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Laughing Moss" data-rarity="uncommon">
+                            Laughing Moss [11-16-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Lions Blume" data-rarity="uncommon">
+                            Lions Blume [17-13-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Living Spud" data-rarity="uncommon">
+                            Living Spud [14-12-17]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Magic Monk&#39;s Rice Wine" data-rarity="uncommon">
+                            Magic Monk&#39;s Rice Wine [16-12-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Molted Lizard Skin" data-rarity="uncommon">
+                            Molted Lizard Skin [15-12-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mountain Snail" data-rarity="uncommon">
+                            Mountain Snail [14-15-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Mournshade" data-rarity="uncommon">
+                            Mournshade [14-15-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Munchanka Root" data-rarity="uncommon">
+                            Munchanka Root [17-11-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Nakudama Spice" data-rarity="uncommon">
+                            Nakudama Spice [12-15-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Night Thistle" data-rarity="uncommon">
+                            Night Thistle [14-17-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Noodle Eel" data-rarity="uncommon">
+                            Noodle Eel [13-12-16]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Opu Opu Spring Water" data-rarity="uncommon">
+                            Opu Opu Spring Water [11-16-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Petrified Alligator" data-rarity="uncommon">
+                            Petrified Alligator [15-16-13]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Pok Pok Flakes" data-rarity="uncommon">
+                            Pok Pok Flakes [13-14-13]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Rubble from a Rubble Golem" data-rarity="uncommon">
+                            Rubble from a Rubble Golem [16-11-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Scumweed" data-rarity="uncommon">
+                            Scumweed [11-12-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Shadowroot" data-rarity="uncommon">
+                            Shadowroot [15-13-12]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Sleeping Merchant" data-rarity="uncommon">
+                            Sleeping Merchant [13-13-13]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Spark Plug" data-rarity="uncommon">
+                            Spark Plug [11-17-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Spirit Tea" data-rarity="uncommon">
+                            Spirit Tea [11-11-17]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Spring" data-rarity="uncommon">
+                            Spring [14-17-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Sun Shroom" data-rarity="uncommon">
+                            Sun Shroom [13-16-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Toka Truffle" data-rarity="uncommon">
+                            Toka Truffle [15-12-14]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Vinyl Record" data-rarity="uncommon">
+                            Vinyl Record [15-15-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Wolfenite" data-rarity="uncommon">
+                            Wolfenite [11-17-11]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Wychwood" data-rarity="uncommon">
+                            Wychwood [14-13-15]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Yellow Slime" data-rarity="uncommon">
+                            Yellow Slime [17-11-11]
+                        </button><br><br>
+                    
+                </div>
+
+                <!-- Rare Ingredients Column -->
+                <div class="column">
+                    <h3>Rare Ingredients</h3>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Blossom of Spirit Vine" data-rarity="rare">
+                            Blossom of Spirit Vine [18-18-19]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bottled Lightning" data-rarity="rare">
+                            Bottled Lightning [20-20-18]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Bubble Gum" data-rarity="rare">
+                            Bubble Gum [18-19-20]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Coal from the Spirit Train" data-rarity="rare">
+                            Coal from the Spirit Train [19-19-20]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Crimson Octopus Ink" data-rarity="rare">
+                            Crimson Octopus Ink [19-18-19]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Dragon Fang of Yutro" data-rarity="rare">
+                            Dragon Fang of Yutro [20-18-19]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Fairy Willow" data-rarity="rare">
+                            Fairy Willow [18-18-20]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Giant Koi Fish Scale" data-rarity="rare">
+                            Giant Koi Fish Scale [18-20-18]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Golden Root" data-rarity="rare">
+                            Golden Root [18-18-18]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Hand of Eryo" data-rarity="rare">
+                            Hand of Eryo [9-5-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Irimbi Chrysalis" data-rarity="rare">
+                            Irimbi Chrysalis [9-5-4]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Lionfish Poison" data-rarity="rare">
+                            Lionfish Poison [20-0-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Nokumai&#39;s Frozen Breath" data-rarity="rare">
+                            Nokumai&#39;s Frozen Breath [0-0-20]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Orange Slime" data-rarity="rare">
+                            Orange Slime [20-20-20]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Ota Lantern Oil" data-rarity="rare">
+                            Ota Lantern Oil [0-20-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Plumage of a Running Kirio" data-rarity="rare">
+                            Plumage of a Running Kirio [18-18-19]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Ronin Neko Figurine" data-rarity="rare">
+                            Ronin Neko Figurine [0-19-18]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Sage Arol&#39;s Beetle" data-rarity="rare">
+                            Sage Arol&#39;s Beetle [18-20-0]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Starstone" data-rarity="rare">
+                            Starstone [18-0-19]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Tears of the Moon" data-rarity="rare">
+                            Tears of the Moon [18-18-18]
+                        </button><br><br>
+                    
+                        <button type="button" class="ingredient-button" data-ingredient="Wufu Whisky" data-rarity="rare">
+                            Wufu Whisky [19-19-19]
+                        </button><br><br>
+                    
+                </div>
+            </div>
+
+            <!-- Button group below columns -->
+            <div class="button-group">
+                <button type="button" onclick="findRecipes()">Find Recipes</button>
+                <button type="button" onclick="clearSelection()">Clear Selection</button>
+            </div>
+        </form>
+
+        <div id="results" class="recipe-columns">
+            <!-- Results will be displayed in this section -->
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
